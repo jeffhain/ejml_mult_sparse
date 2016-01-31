@@ -128,7 +128,7 @@ public class MatrixMatrixMultSparse {
 
     /**
      * Efficient for matrices above a certain size, and with small density,
-     * not efficient for small matrices with non-small density.
+     * not efficient for small matrices or matrices with non-small density.
      */
     public static void mult_sparse( RowD1Matrix64F a , RowD1Matrix64F b , RowD1Matrix64F c )
     {
@@ -250,10 +250,7 @@ public class MatrixMatrixMultSparse {
         }
         if (dummy == Math.PI+Math.E) {
             // Can't happen since we added integers.
-            if (Math.sin(dummy) == 0.0) {
-                // Can't happen either, but JIT should not bother to figure it out.
-                throw new AssertionError("WAT?");
-            }
+            throw new AssertionError("can't happen");
         }
     }
     
